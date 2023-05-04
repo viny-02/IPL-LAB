@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: bisque;">
+    <h2>Create student profile</h2>
+    <hr>
+    <form action="./create" method="post">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id"><br>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+
+        <label for="dept">Department</label>
+        <input type="text" id="dept" name="dept"><br>
+
+        <label for="marks">Marks</label>
+        <input type="text" id="marks" name="marks"><br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <br>
+    <h2>Display student details</h2>
+    <hr>
+      <a href="./display">Click here to display student details</a>
+    <hr>
+    <br>
+    <h2>Update details</h2>
+    <hr>
+    <form method="get" action="./update">
+        Name:<input type="text" name="name"></input><br>
+         Marks:<input type="text" name="marks"></input><br><br>
+        <input type="submit" value="Submit"></input>
+    </form>
+    <br>
+    <h2>Delete details</h2>
+    <hr>
+    <form action="./delete" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <input type="submit" value="Delete">
+    </form>
+
+
+</body>
+
+</html>
