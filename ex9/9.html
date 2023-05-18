@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<HTML>
+    <HEAD>
+        <TITLE>User information from XML </TITLE>
+        <SCRIPT>
+            function readXMLData()
+            {
+                var xmlDocumentObject, id , name , addr, phone, email;
+                xmlDocumentObject=new XMLHttpRequest();
+                xmlDocumentObject.open("GET","users.xml",false);
+                xmlDocumentObject.send();
+                xmlDocumentObject=xmlDocumentObject.responseXML;
+                id = xmlDocumentObject.getElementsByTagName("userid");
+                name = xmlDocumentObject.getElementsByTagName("username");
+                address = xmlDocumentObject.getElementsByTagName("address");
+                phone = xmlDocumentObject.getElementsByTagName("phone");
+                email = xmlDocumentObject.getElementsByTagName("email");
+
+                var found = 0;
+                for (i = 0; i < id.length; i++)
+                {
+                    output=id[i].firstChild.nodeValue;
+                    if (output == document.getElementById("myText").value)
+                    {
+                        found=1;
+                        break;
+                    }
+                }
+                if(found==1)
+                {
+                        displayDIV.innerHTML = "<table border='1'><tr><th>User ID</th><td>"+id[i].firstChild.nodeValue + 
+                                                "</td></tr><tr><th>User name</th><td> " + name[i].firstChild.nodeValue +
+                                                "</td></tr><tr><th>Address</th><td> " +address[i].firstChild.nodeValue + 
+                                                "</td></tr><tr><th>Mobile</th><td> " +phone[i].firstChild.nodeValue +
+                                                    "</td></tr><tr><th>Email</th><td>"+email[i].firstChild.nodeValue+
+                                                        "</td></tr></table>";
+                }
+                else
+                {
+                    displayDIV.innerHTML = "<p>User not found !!</p>";
+                } 
+            }
+        </SCRIPT>
+    </HEAD>
+    <BODY>
+        <H1>Search User</H1>
+        <input type="text" id="myText" value="">
+        <input type="BUTTON" VALUE="Get User Details" ONCLICK="readXMLData()">
+        <P>
+        <DIV ID="displayDIV"> </DIV>
+    </BODY>
+</HTML>
